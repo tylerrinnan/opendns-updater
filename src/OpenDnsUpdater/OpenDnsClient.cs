@@ -67,6 +67,10 @@ internal static class OpenDnsClient
         }
     }
 
+    // The response vocabulary below ("good", "nochg", "badauth", etc.) was cross-checked
+    // against OpenDNS's own archived client (opendns/dynamicipupdate, BSD-3-Clause) and
+    // verified live against the real endpoint. No source code from that project is
+    // reproduced here — this is an independent implementation of the same wire protocol.
     private static OpenDnsUpdateResult Parse(string body)
     {
         if (StartsWith(body, "good"))
